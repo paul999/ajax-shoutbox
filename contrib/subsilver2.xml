@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<!-- $Id: subsilver2.xml 279 2008-04-13 08:54:14Z paul $ -->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.2.xsd">
+  <header>
+    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+    <title lang="en">Ajax ShoutBox</title>
+    <description lang="en">This mod add a shoutbox to your forum index.</description>
+    <author-notes lang="en">This mod requires for the user visiting the forum that he has eneblad JavaScript. Without JavaScript, the shoutbox isn't displayed.
+
+You can place this shoutbox eveywhere on the forum, the only thing you has to do is editing the correct html file, with the changes that are normally done for index_body.html.</author-notes>
+    <author-group>
+		  <author>
+        <realname>Paul Sohier</realname>
+        <email>mods@paulscripts.nl</email>
+        <username>Paul</username>
+        <homepage>http://www.paulscripts.nl/</homepage>
+        <contributions />
+      </author>
+    </author-group>
+    <mod-version>1.2.0</mod-version>
+    <installation>
+      <level>easy</level>
+      <time>100</time>
+      <target-version>3.0.4</target-version>
+    </installation>
+
+    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+  </header>
+  <action-group>
+    <copy>
+      <file from="root/styles/subsilver2/template/shout_body.html" to="styles/subsilver2/template/shout_body.html" />
+    </copy>
+
+		<open src="styles/subsilver2/template/editor.js">
+		    <edit>
+			    <find><![CDATA[	for (sel_start = 0; range_all.compareEndPoints('StartToStart', range) < 0; sel_start++)]]></find>
+				<action type="before-add">try
+{
+				</action>
+			</edit>
+			<edit>
+				<find>      // we ignore the end value for IE, this is already dirty enough and we don't need it
+      caretPos.start = txtarea.sel_start;
+      caretPos.end = txtarea.sel_start;</find>
+                <action type="after-add">}
+catch(e)
+{
+}
+				</action>
+			</edit>
+
+		</open>
+    
+    <open src="styles/subsilver2/template/index_body.html">
+      <edit>
+        <find><![CDATA[<!-- IF not S_USER_LOGGED_IN -->
+	<br clear="all" />
+
+	<form method="post" action="{S_LOGIN_ACTION}">
+
+]]></find>
+        <action type="before-add"><![CDATA[<!-- INCLUDE shout_body.html -->]]></action>
+      </edit>
+    </open>
+    <open src="styles/subsilver2/template/overall_header.html">
+      <edit>
+        <find><![CDATA[</head>]]></find>
+        <action type="before-add"><![CDATA[
+	<!-- IF S_DISPLAY_SHOUTBOX -->
+		<script type="text/javascript" src="{U_SHOUT_STATIC}"></script>
+		<script type="text/javascript" src="{T_TEMPLATE_PATH}/editor.js"></script>
+		<script type="text/javascript" src="{U_SHOUT}"></script>
+    <!-- ENDIF -->
+	]]></action>
+      </edit>
+    </open>    
+    <open src="styles/subsilver2/theme/stylesheet.css">
+    	<edit>
+	    	<find><![CDATA[.username-coloured {
+		font-weight: bold;
+	}]]>
+	    	</find>
+	<action type="after-add"><![CDATA[#msg > li.row1 {
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	height: auto;
+	width:98%;
+	float: left;
+}
+
+#msg > li.row2 {
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	height: auto;
+	width:98%;
+	float: left;
+}
+
+#msg > li > dl{
+	vertical-align: middle;
+	width: 100%;
+}
+
+#msg > li > dl > dt{
+	width: auto !important;
+	white-space: nowrap;
+	margin-right: 2px;
+}
+
+#msg > li > dl > dd > input{
+	margin: 3px;
+}
+
+#msg > li > dl > dd#msgbody{
+	display: inline;
+	padding: 3px 0 1px 0px !important;
+	vertical-align: middle;
+	float:none !important;
+}
+
+#base_ul
+{
+	list-style:none;
+	margin-left: 0;
+}
+]]>
+	    	</action>
+	    </edit>
+    </open>
+  </action-group>
+</mod>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<!-- $Id: update.xml 279 2008-04-13 08:54:14Z paul $ -->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.2.xsd">
+	<header>
+	<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+	<title lang="en">Update Ajax ShoutBox</title>
+	<description lang="en">This are the update instructions from 1.2.0RC1 to 1.2.0</description>
+	<author-notes lang="en">This instructions are based of 1.2.0RC1!
+</author-notes>
+	<author-group>
+		<author>
+		<realname>Paul Sohier</realname>
+		<email>mods@paulscripts.nl</email>
+		<username>Paul</username>
+		<homepage>http://www.paulscripts.nl/</homepage>
+		<contributions />
+		</author>
+	</author-group>
+	<mod-version>1.2.0</mod-version>
+	<installation>
+		<level>easy</level>
+		<time>100</time>
+		<target-version>3.0.4</target-version>
+	</installation>
+	<meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+	</header>
+	<action-group>
+	    <diy-instructions lang="en">
+	    Point your browser now to the install/update.php directory, to update the config items.
+	    After that, delete the install directory again!
+	    </diy-instructions>
+		<copy>
+		    <file from="root/install/functions.php" to="install/functions.php" />
+		    <file from="root/install/update.php" to="install/update.php" />
+		
+			<file from="root/ajax.php" to="ajax.php" />
+			<file from="root/js.php" to="js.php" />
+			<file from="root/static.js" to="static.js" />
+			<file from="root/adm/style/acp_shoutbox.html" to="adm/style/acp_shoutbox.html" />
+			<file from="root/includes/functions_shoutbox.php" to="includes/functions_shoutbox.php" />
+			<file from="root/acp/acp_shoutbox.php" to="includes/acp/acp_shoutbox.php" />
+			<file from="root/acp/info/acp_shoutbox.php" to="includes/acp/info/acp_shoutbox.php" />
+			<file from="root/language/en/mods/acp/permissions_ajax_shoutbox.php" to="language/en/mods/acp/permissions_ajax_shoutbox.php" />
+			<file from="root/language/en/mods/acp/mods/ajax_shoutbox.php" to="language/en/mods/acp/mods/ajax_shoutbox.php" />
+			<file from="root/language/en/mods/info_ajax_shoutbox.php" to="language/en/mods/info_ajax_shoutbox.php" />
+			<file from="root/language/en/mods/shout.php" to="language/en/mods/shout.php" />
+			<file from="root/styles/prosilver/template/shout_body.html" to="styles/prosilver/template/shout_body.html" />
+		</copy>
+
+	</action-group>
+</mod>
