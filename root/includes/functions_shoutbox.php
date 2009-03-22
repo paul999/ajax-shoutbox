@@ -25,7 +25,7 @@ else
 {
 	$shout_number = (isset($config['as_ie_nr'])) ? $config['as_ie_nr'] : 5;
 }
-define('VERSION', '1.2.0');
+define('VERSION', '1.4.0');
 
 /**
  * Returns cdata'd string

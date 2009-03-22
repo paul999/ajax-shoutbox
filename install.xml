@@ -14,8 +14,7 @@ If you place it somewhere else as index_body.html you need also to move the call
 
 Please report bug or feature requests ONLY at http://shoutbox.paulsohier.nl/ Thats the only place where I will answer bugreports and featurerequests!
 
-Use contrib/upgrade.xml to upgrade from 1.0.3 to 1.2.0, and use contrib/update.xml to update from 1.1.1 to 1.2.0.
-
+Use contrib/upgrade.xml to upgrade from 1.2.0 to 1.4.0
 </author-notes>
 	<author-group>
 		<author>
@@ -26,7 +25,7 @@ Use contrib/upgrade.xml to upgrade from 1.0.3 to 1.2.0, and use contrib/update.x
 		<contributions />
 		</author>
 	</author-group>
-	<mod-version>1.2.0</mod-version>
+	<mod-version>1.4.0</mod-version>
 	<installation>
 		<level>easy</level>
 		<time>1000</time>
@@ -85,6 +84,13 @@ Use contrib/upgrade.xml to upgrade from 1.0.3 to 1.2.0, and use contrib/update.x
                 <change>Some small changes, nothing major</change>
 			</changelog>
 		</entry>
+		<entry>
+			<date>2009-03-xx</date>
+			<rev-version >1.4.0</rev-version>
+			<changelog lang="en">
+                <change></change>
+			</changelog>
+		</entry>		
 		</history>
 		<meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
 	</header>
