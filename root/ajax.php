@@ -117,8 +117,6 @@ switch ($mode)
 	
 	case 'add':
 		$mode = 'post'; // Will this work? :p
-	break;
-	
 	case 'post':
 	case 'edit':
 		if (($mode == 'post' && !$auth->acl_get('u_as_' . $mode)) || ($mode == 'edit' && !$auth->acl_get('u_as_mod_edit') && !$auth->acl_get('u_as_' . $mode)))
@@ -276,7 +274,7 @@ switch ($mode)
 	    {
 	        as_error($user->lang['NO_ADMIN_PERM']);
 		}
-	    /*
+	   	/*
 		 * Version checker, currently only in test!
 		 */
 
