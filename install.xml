@@ -12,7 +12,7 @@
 You can place this shoutbox eveywhere on the forum, the only thing you has to do is editing the correct html file, with the changes that are normally done for index_body.html.
 If you place it somewhere else as index_body.html you need also to move the calls to as_display (And the include) in index.php to the correct page.
 
-Please report bug or feature requests ONLY at http://www.paulsohier.nl/ajax/ Thats the only place where I will answer bugreports and featurerequests!
+Please report bug or feature requests ONLY at http://shoutbox.paulsohier.nl/ Thats the only place where I will answer bugreports and featurerequests!
 
 Use contrib/upgrade.xml to upgrade from 1.0.3 to 1.2.0, and use contrib/update.xml to update from 1.1.1 to 1.2.0.
 
