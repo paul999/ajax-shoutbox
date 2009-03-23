@@ -92,15 +92,31 @@ $available_dbms = get_available_dbms();
 
 if ($dbms == 'mysql4' || $dbms == 'mysql')
 {
-
-	if (version_compare($db->mysql_version, '4.1.3', '>='))
+	if (isset($db->mysql_version))
 	{
-		$available_dbms['mysql']['SCHEMA'] .= '_41';
-		$dbms = 'mysql';
+		// < 3.0.4?
+		if (version_compare($db->mysql_version, '4.1.3', '>='))
+		{
+			$available_dbms['mysql']['SCHEMA'] .= '_41';
+			$dbms = 'mysql';
+		}
+		else
+		{
+			$available_dbms[$dbms]['SCHEMA'] .= '_40';
+		}
+		
 	}
-	else
+	else if (isset($db->sql_layer))
 	{
-		$available_dbms[$dbms]['SCHEMA'] .= '_40';
+		if ($db->sql_layer == 'mysql4')
+		{
+			$available_dbms['mysql']['SCHEMA'] .= '_41';		
+		}
+		else
+		{
+			$available_dbms[$dbms]['SCHEMA'] .= '_40';
+		}		
+		$dbms = 'mysql';				
 	}
 }
 
